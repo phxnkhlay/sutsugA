@@ -12,10 +12,10 @@ from github import Github, GithubException
 GITHUB_TOKEN = os.getenv('GITHUB_PAT')  # Ambil dari environment variable
 
 # Sumber konten (tanpa footer). Kita akan tambahkan footer sendiri.
-SOURCE_URL   = "https://raw.githubusercontent.com/Xaffin/-/refs/heads/main/%E0%B8%AD%E0%B8%B1%E0%B8%9F%E0%B8%9F%E0%B8%B4%E0%B8%99"
+SOURCE_URL   = "https://raw.githubusercontent.com/Xaffin/-/refs/heads/main/%E0%B8%A3%E0%B9%88%E0%B8%B3%E0%B8%A3%E0%B8%A7%E0%B8%A2"
 
 # REPO tujuan (Format: "username/repository")
-DEST_REPO    = "phxnkhlay/sutsugA"
+DEST_REPO    = "phxnkhlay/markpom"
 GIT_BRANCH   = "main"
 COMMIT_MSG   = "Auto update: Sync playlist from source + footer update"
 SLEEP_BETWEEN_COMMITS_SEC = 0.7
@@ -318,7 +318,7 @@ def main():
         force_expired = None  # auto per-file
 
     # Proses semua file target
-    target_files = generate_target_files(month_name="AGUSTUS", year=2027, prefix="SA")
+    target_files = generate_target_files(month_name="JANUARI", year=2027, prefix="MP")
     print(f"\n📁 Daftar file target ({len(target_files)}):")
     print(target_files)
  
