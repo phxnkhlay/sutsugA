@@ -15,7 +15,7 @@ GITHUB_TOKEN = os.getenv('GITHUB_PAT')  # Ambil dari environment variable
 SOURCE_URL   = "https://raw.githubusercontent.com/Xaffin/-/refs/heads/main/%E0%B8%A3%E0%B9%88%E0%B8%B3%E0%B8%A3%E0%B8%A7%E0%B8%A2"
 
 # REPO tujuan (Format: "username/repository")
-DEST_REPO    = "phxnkhlay/markpom"
+DEST_REPO    = "phxnkhlay/sutsugA"
 GIT_BRANCH   = "main"
 COMMIT_MSG   = "Auto update: Sync playlist from source + footer update"
 SLEEP_BETWEEN_COMMITS_SEC = 0.7
