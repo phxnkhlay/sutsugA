@@ -227,9 +227,9 @@ def repo_has_marker(repo) -> bool:
 # TARGET FILES (dinamis per bulan/tahun)
 # ==========================
 def generate_target_files(
-    month_name: str = "JANUARI",
+    month_name: str = "AGUSTUS",
     year: int = 2027,
-    prefix: str = "MP",
+    prefix: str = "SA",
 ) -> list[str]:
     """
     Menghasilkan OA01<BULAN><TAHUN> ... OA<DD><BULAN><TAHUN> sesuai jumlah hari pada bulan-tahun.
