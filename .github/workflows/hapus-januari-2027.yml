@@ -1,0 +1,55 @@
+name: Hapus MP Januari 2027
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  delete-files:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Hapus MP01-MP31 Januari 2027
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+
+          echo "=========================================="
+          echo "HAPUS MP01JANUARI2027 - MP31JANUARI2027"
+          echo "Repository: $GITHUB_REPOSITORY"
+          echo "=========================================="
+
+          for i in $(seq -w 1 31); do
+            FILE="MP${i}JANUARI2027"
+
+            echo ""
+            echo "Memproses: $FILE"
+
+            DATA=$(gh api \
+              "repos/$GITHUB_REPOSITORY/contents/$FILE" \
+              2>/dev/null || true)
+
+            if [ -z "$DATA" ]; then
+              echo "Tidak ditemukan: $FILE"
+              continue
+            fi
+
+            SHA=$(echo "$DATA" | jq -r '.sha')
+
+            gh api \
+              --method DELETE \
+              "repos/$GITHUB_REPOSITORY/contents/$FILE" \
+              -f message="Hapus $FILE" \
+              -f sha="$SHA" \
+              -f branch="${GITHUB_REF_NAME}"
+
+            echo "✓ Berhasil dihapus: $FILE"
+          done
+
+          echo ""
+          echo "=========================================="
+          echo "SELESAI"
+          echo "=========================================="
